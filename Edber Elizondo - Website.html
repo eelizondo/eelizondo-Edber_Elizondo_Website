@@ -774,7 +774,12 @@
         // IMPORTANT: Replace these with your actual EmailJS credentials
         (function() {
             if (typeof emailjs !== 'undefined') {
-                emailjs.init("swiApwikzPVPPoVE4"); 
+                emailjs.init({
+                    publicKey: "swiApwikzPVPPoVE4"
+                });
+                console.log('EmailJS initialized successfully');
+            } else {
+                console.error('EmailJS library not loaded');
             }
         })();
 
@@ -795,6 +800,7 @@
                 
                 // Send email using EmailJS
                 if (typeof emailjs !== 'undefined') {
+                    console.log('Attempting to send email...');
                     emailjs.sendForm('service_h026yc4', 'template_0n4brjc', this)
                         .then(function(response) {
                             console.log('SUCCESS!', response.status, response.text);
