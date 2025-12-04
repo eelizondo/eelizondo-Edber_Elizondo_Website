@@ -801,9 +801,16 @@
                     console.log('Attempting to send email...');
                     console.log('Service ID: service_xoocdak');
                     console.log('Template ID: template_e0buj13');
-                    console.log('Form data:', new FormData(this));
                     
-                    emailjs.sendForm('service_xoocdak', 'template_e0buj13', this)
+                    // Get form values
+                    const templateParams = {
+                        name: this.name.value,
+                        email: this.email.value,
+                        message: this.message.value
+                    };
+                    console.log('Template params:', templateParams);
+                    
+                    emailjs.send('service_xoocdak', 'template_e0buj13', templateParams)
                         .then(function(response) {
                             console.log('SUCCESS!', response.status, response.text);
                             
