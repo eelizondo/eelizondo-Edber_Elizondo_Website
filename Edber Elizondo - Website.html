@@ -801,6 +801,10 @@
                 // Send email using EmailJS
                 if (typeof emailjs !== 'undefined') {
                     console.log('Attempting to send email...');
+                    console.log('Service ID: service_xoocdak');
+                    console.log('Template ID: template_e0buj13');
+                    console.log('Form data:', new FormData(this));
+                    
                     emailjs.sendForm('service_xoocdak', 'template_e0buj13', this)
                         .then(function(response) {
                             console.log('SUCCESS!', response.status, response.text);
@@ -817,10 +821,15 @@
                             submitBtn.disabled = false;
                             btnText.textContent = 'Send Message';
                         }, function(error) {
-                            console.log('FAILED...', error);
+                            console.error('FAILED...', error);
+                            console.error('Error details:', JSON.stringify(error));
                             
-                            // Show error message
-                            formMessage.textContent = '✗ Failed to send message. Please try again or email me directly.';
+                            // Show error message with more details
+                            let errorMsg = '✗ Failed to send message. Please try again or email me directly.';
+                            if (error.text) {
+                                console.error('Error text:', error.text);
+                            }
+                            formMessage.textContent = errorMsg;
                             formMessage.classList.remove('hidden', 'text-accent-deep', 'dark:text-accent');
                             formMessage.classList.add('text-red-500', 'dark:text-red-400');
                             
