@@ -774,9 +774,7 @@
         // IMPORTANT: Replace these with your actual EmailJS credentials
         (function() {
             if (typeof emailjs !== 'undefined') {
-                emailjs.init({
-                    publicKey: "swiApwikzPVPPoVE4"
-                });
+                emailjs.init("swiApwikzPVPPoVE4");
                 console.log('EmailJS initialized successfully');
             } else {
                 console.error('EmailJS library not loaded');
