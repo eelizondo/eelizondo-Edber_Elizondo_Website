@@ -770,7 +770,7 @@
         // IMPORTANT: Replace these with your actual EmailJS credentials
         (function() {
             if (typeof emailjs !== 'undefined') {
-                emailjs.init("YOUR_PUBLIC_KEY"); 
+                emailjs.init("swiApwikzPVPPoVE4"); 
             }
         })();
 
@@ -791,7 +791,7 @@
                 
                 // Send email using EmailJS
                 if (typeof emailjs !== 'undefined') {
-                    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                    emailjs.sendForm('service_h026yc4', 'template_0n4brjc', this)
                         .then(function(response) {
                             console.log('SUCCESS!', response.status, response.text);
                             
