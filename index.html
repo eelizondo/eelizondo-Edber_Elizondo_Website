@@ -143,12 +143,34 @@
                 </button>
 
                 <!-- Mobile Menu Icon -->
-                <button class="md:hidden text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text-primary dark:hover:text-white">
+                <button id="mobileMenuBtn" class="md:hidden text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text-primary dark:hover:text-white">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-dark-bg/95 backdrop-blur-lg" id="mobileMenuBackdrop"></div>
+        <div class="relative h-full flex flex-col">
+            <div class="flex items-center justify-between p-6 border-b border-dark-border">
+                <span class="text-xl serif-font italic font-medium tracking-tight text-white">Edber.</span>
+                <button id="closeMobileMenu" class="p-2 rounded-full text-dark-text-muted hover:text-white hover:bg-dark-hover transition-all">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <nav class="flex-1 overflow-y-auto py-8">
+                <div class="flex flex-col gap-2 px-6">
+                    <a href="#about" class="mobile-menu-link px-4 py-4 text-lg font-medium text-dark-text-secondary hover:text-white hover:bg-dark-hover rounded-xl transition-all">About</a>
+                    <a href="#services" class="mobile-menu-link px-4 py-4 text-lg font-medium text-dark-text-secondary hover:text-white hover:bg-dark-hover rounded-xl transition-all">Services</a>
+                    <a href="#work" class="mobile-menu-link px-4 py-4 text-lg font-medium text-dark-text-secondary hover:text-white hover:bg-dark-hover rounded-xl transition-all">Work</a>
+                    <a href="#archive" class="mobile-menu-link px-4 py-4 text-lg font-medium text-dark-text-secondary hover:text-white hover:bg-dark-hover rounded-xl transition-all">Archive</a>
+                    <a href="#contact" class="mobile-menu-link mt-4 px-6 py-4 bg-accent text-dark-bg rounded-xl font-semibold hover:bg-accent-deep transition-all text-center shadow-lg">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
@@ -838,6 +860,42 @@
                 }
             });
         }
+
+        // Mobile Menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            // Re-initialize icons for the mobile menu
+            setTimeout(() => lucide.createIcons(), 10);
+        }
+
+        function closeMobileMenuFunc() {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+        }
+
+        if (closeMobileMenu) {
+            closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+        }
+
+        if (mobileMenuBackdrop) {
+            mobileMenuBackdrop.addEventListener('click', closeMobileMenuFunc);
+        }
+
+        // Close mobile menu when clicking on a link
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenuFunc);
+        });
     </script>
 
 </body></html>
