@@ -152,20 +152,20 @@
 
     <!-- Mobile Menu Overlay -->
     <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
-        <div class="absolute inset-0 bg-dark-bg/95 backdrop-blur-lg" id="mobileMenuBackdrop"></div>
+        <div class="absolute inset-0 bg-light-bg/95 dark:bg-dark-bg/95 backdrop-blur-lg" id="mobileMenuBackdrop"></div>
         <div class="relative h-full flex flex-col">
-            <div class="flex items-center justify-between p-6 border-b border-dark-border">
-                <span class="text-xl serif-font italic font-medium tracking-tight text-white">Edber.</span>
-                <button id="closeMobileMenu" class="p-2 rounded-full text-dark-text-muted hover:text-white hover:bg-dark-hover transition-all">
+            <div class="flex items-center justify-between p-6 border-b border-light-border dark:border-dark-border">
+                <span class="text-xl serif-font italic font-medium tracking-tight text-light-text-primary dark:text-white">Edber.</span>
+                <button id="closeMobileMenu" class="p-2 rounded-full text-light-text-muted dark:text-dark-text-muted hover:text-light-text-primary dark:hover:text-white hover:bg-light-hover dark:hover:bg-dark-hover transition-all">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
             <nav class="flex-1 overflow-y-auto py-8">
                 <div class="flex flex-col gap-2 px-6">
-                    <a href="#about" class="mobile-menu-link px-4 py-4 text-lg font-medium text-dark-text-secondary hover:text-white hover:bg-dark-hover rounded-xl transition-all">About</a>
-                    <a href="#services" class="mobile-menu-link px-4 py-4 text-lg font-medium text-dark-text-secondary hover:text-white hover:bg-dark-hover rounded-xl transition-all">Services</a>
-                    <a href="#work" class="mobile-menu-link px-4 py-4 text-lg font-medium text-dark-text-secondary hover:text-white hover:bg-dark-hover rounded-xl transition-all">Work</a>
-                    <a href="#archive" class="mobile-menu-link px-4 py-4 text-lg font-medium text-dark-text-secondary hover:text-white hover:bg-dark-hover rounded-xl transition-all">Archive</a>
+                    <a href="#about" class="mobile-menu-link px-4 py-4 text-lg font-medium text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text-primary dark:hover:text-white hover:bg-light-hover dark:hover:bg-dark-hover rounded-xl transition-all">About</a>
+                    <a href="#services" class="mobile-menu-link px-4 py-4 text-lg font-medium text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text-primary dark:hover:text-white hover:bg-light-hover dark:hover:bg-dark-hover rounded-xl transition-all">Services</a>
+                    <a href="#work" class="mobile-menu-link px-4 py-4 text-lg font-medium text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text-primary dark:hover:text-white hover:bg-light-hover dark:hover:bg-dark-hover rounded-xl transition-all">Work</a>
+                    <a href="#archive" class="mobile-menu-link px-4 py-4 text-lg font-medium text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text-primary dark:hover:text-white hover:bg-light-hover dark:hover:bg-dark-hover rounded-xl transition-all">Archive</a>
                     <a href="#contact" class="mobile-menu-link mt-4 px-6 py-4 bg-accent text-dark-bg rounded-xl font-semibold hover:bg-accent-deep transition-all text-center shadow-lg">Contact</a>
                 </div>
             </nav>
